@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Activity, Heart, Moon, Shield, Smartphone, Camera } from "lucide-react";
 import { gsap } from "gsap";
 
@@ -84,10 +85,11 @@ export default function Scene5Experience() {
               </div>
 
               <div className="relative aspect-video rounded-3xl bg-neutral-900 overflow-hidden border border-white/5 mb-8">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=1000" 
                   alt="Pet View" 
-                  className="w-full h-full object-cover opacity-60"
+                  fill
+                  className="object-cover opacity-60"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <div className="absolute bottom-6 left-6 flex items-center gap-4">

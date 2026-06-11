@@ -26,9 +26,12 @@ export default function PremiumCursor() {
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) {
-      setIsTouchDevice(true);
-      return;
+      setTimeout(() => setIsTouchDevice(true), 0);
     }
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return;
 
     const moveMouse = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -54,7 +57,7 @@ export default function PremiumCursor() {
       window.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY, isVisible, isTouchDevice]);
 
   if (isTouchDevice) return null;
 
